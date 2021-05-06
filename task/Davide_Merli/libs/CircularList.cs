@@ -13,7 +13,7 @@ namespace task.Davide_Merli.libs
     public class CircularList<T> : List<T>
     {
 
-        private int currentIndex;
+        private int currentIndex = 0;
         public int CurrentIndex
         {
             get { return this.currentIndex; }
@@ -30,12 +30,10 @@ namespace task.Davide_Merli.libs
         public CircularList(List<T> list)
         {
             this.AddRange(list);
-            CurrentIndex = 0;
         }
 
         public CircularList()
         {
-            CurrentIndex = 0;
         }
 
         /// <summary>
