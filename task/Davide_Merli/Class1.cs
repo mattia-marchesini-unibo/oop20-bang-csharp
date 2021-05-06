@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace task
+namespace task.Davide_Merli
 {
     public class Class1
     {
@@ -27,8 +27,8 @@ namespace task
 
         public static void Main()
         {
-            Class1 c = new Class1();
-            c.Ciao();
+            // I'm just here to test stuff, please don't mind me
         }
+
     }
 }
