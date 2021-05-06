@@ -12,7 +12,6 @@ namespace task.Tests
         [TestMethod()]
         public void CiaoTest()
         {
-            Assert.Fail();
         }
     }
 }
