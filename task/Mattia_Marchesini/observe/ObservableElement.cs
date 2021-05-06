@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace task.Mattia_Marchesini.observe
 {
-    class ObservableElement<E> : IObservable
+    public class ObservableElement<E> : IObservable
     {
         protected List<Observer> Observers { get; } = new List<Observer>();
         private E element;
@@ -37,6 +37,21 @@ namespace task.Mattia_Marchesini.observe
             {
                 obs();
             });
+        }
+
+        public void SetNoNotify(E element) => this.element = element;
+
+        public bool IsEmpty() => this.element == null;
+
+        public override bool Equals(object obj)
+        {
+            return obj is ObservableElement<E> element &&
+                   EqualityComparer<E>.Default.Equals(this.element, element.element);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(element);
         }
     }
 }
