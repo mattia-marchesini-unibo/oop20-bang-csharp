@@ -8,7 +8,9 @@ namespace task
     {
         public void Ciao()
         {
-
+            Console.WriteLine("ciao");
         }
+        
     }
+
 }
