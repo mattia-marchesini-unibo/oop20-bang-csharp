@@ -3,11 +3,11 @@ using System.Linq;
 using System.Collections.Generic;
 namespace model
 {
-	public class SimplePlayer : IPlayer
+	public class Player : IPlayer
 	{
 		private static readonly int BASIC_SIGHT = 1;
 		private static readonly int MAX_LIFE_POINTS = 4;
-		private String Name { get; }
+		//private String Name { get; }
 		private int sight = BASIC_SIGHT;
 		public int Retreat { get; set; }
 		private Role role { get; }
@@ -20,7 +20,7 @@ namespace model
 		private Card weapon = null;
 
 		
-		public SimplePlayer(Role role, String name)
+		public Player(Role role, String name)
 		{
 			this.Retreat = 0;
 			this.Sight = BASIC_SIGHT;
@@ -79,7 +79,7 @@ namespace model
 			}
 		}
 
-		public  List<Card> GetCards()
+        public  List<Card> GetCards()
 		{
 			return this.hand;
 		}
