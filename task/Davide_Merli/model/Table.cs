@@ -33,6 +33,11 @@ namespace model
             this.CurrentPlayer = this.Players.GetCurrentElement();
         }
 
+        /// <summary>
+        /// Creates players and gives them a name and a role.
+        /// </summary>
+        /// <param name="playerNumber"></param>
+        /// <returns></returns>
         private CircularList<IPlayer> GetPlayersFromNumber(int playerNumber)
         {
             List<Role> roles = totalRoles.GetRange(0, playerNumber);
@@ -51,6 +56,10 @@ namespace model
             return players;
         }
 
+        /// <summary>
+        /// Gives each player a number of cards equal to their life points
+        ///     at the beginning of the game.
+        /// </summary>
         private void GetFirstCards()
         {
             this.Players.ForEach(p => this.Deck.NextCards(p.LifePoints).ForEach(c => p.AddCard(c)));

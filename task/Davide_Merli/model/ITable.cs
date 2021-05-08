@@ -4,8 +4,8 @@ using System.Text;
 using task.Mattia_Marchesini.observe;
 
 /// <summary>
-///     An interface implementing a game table.
-///     The interface contains functions to handle the players and the deck.
+/// An interface implementing a game table.
+/// The interface contains functions to handle the players and the deck.
 /// </summary>
 /// 
 /// <author>Davide Merli</author>

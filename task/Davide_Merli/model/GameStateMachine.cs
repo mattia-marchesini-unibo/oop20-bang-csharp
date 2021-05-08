@@ -5,7 +5,7 @@ using model.states;
 using task.Mattia_Marchesini.observe;
 
 /// <summary>
-///     A class which handles the changes of states of the game.
+/// A class which handles the changes of states of the game.
 /// </summary>
 /// 
 /// <author>Davide Merli</author>
@@ -24,7 +24,7 @@ namespace model
         }
 
         /// <summary>
-        ///     Handles current state
+        /// Handles current state
         /// </summary>
         public void Go()
         {
@@ -32,7 +32,7 @@ namespace model
         }
 
         /// <summary>
-        ///     Sets the message of the observable.
+        /// Sets the message of the observable.
         /// </summary>
         /// 
         /// <param name="message">the message to set</param>
