@@ -28,10 +28,10 @@ namespace model
         public void RemoveCard(Card card);
 
         /// <summary>
-        /// Returns a set containing the active cards of the player.
+        /// Returns a list containing the active cards of the player.
         /// </summary>
-        /// <returns>a set of cards</returns>
-        public HashSet<Card> GetActiveCards();
+        /// <returns>a list of cards</returns>
+        public List<Card> GetActiveCards();
 
         /// <summary>
         ///  Adds a card to the list of active cards.
