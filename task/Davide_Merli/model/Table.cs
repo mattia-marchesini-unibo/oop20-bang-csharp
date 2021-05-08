@@ -1,40 +1,50 @@
-﻿using model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using task.Davide_Merli.libs;
+using libs;
+using model.deck;
+using libs.observe;
 
-namespace task.Davide_Merli.model
+namespace model
 {
     public class Table : ITable
     {
         private static readonly List<Role> totalRoles = new List<Role>
         {
-            Role.Sheriff, Role.Renegade, Role.Outlaw, Role.Outlaw, Role.Deputy, Role.Outlaw, Role.Deputy)
+            Role.Sheriff, Role.Renegade, Role.Outlaw, Role.Outlaw, Role.Deputy, Role.Outlaw, Role.Deputy
         };
 
-        //public IDeck { get; }
+        public IDeck Deck { get; set; }
         public List<Card> DiscardPile { get; }
-        public CircularList<SimplePlayer> Players { get; }
+        public CircularList<IPlayer> Players { get; set; }
         public IPlayer CurrentPlayer { get; set; }
-        public List<Card> UsedCards { get; }
+        public List<string> UsedCards { get; }
 
-        public Table(/*IDeck deck,*/ int playerNumber)
+        public TurnObservable<IPlayer> ChoosePlayerObservable { get; set; }
+        public TurnObservable<Dictionary<Card, IPlayer>> ChooseCardsObservable { get; set; }
+        public ITable.Message Message { get; set; }
+        public ISet<IPlayer> ChosenPlayerSet { get; set; }
+
+        public Table(IDeck deck, int playerNumber)
         {
-            //this.IDeck = deck;
+            this.Deck = deck;
             this.Players = this.GetPlayersFromNumber(playerNumber);
-            //this.GetFirstCards();
+            this.GetFirstCards();
             this.CurrentPlayer = this.Players.GetCurrentElement();
         }
 
-        private CircularList<Player> GetPlayersFromNumber(int playerNumber)
+        /// <summary>
+        /// Creates players and gives them a name and a role.
+        /// </summary>
+        /// <param name="playerNumber"></param>
+        /// <returns></returns>
+        private CircularList<IPlayer> GetPlayersFromNumber(int playerNumber)
         {
             List<Role> roles = totalRoles.GetRange(0, playerNumber);
             Random random = new Random();
             roles.OrderBy(item => random.Next());
-            CircularList<Player> players = new CircularList<IPlayer>();
-            for(int i = 0; i < playerNumber; i++)
+            CircularList<IPlayer> players = new CircularList<IPlayer>();
+            for (int i = 0; i < playerNumber; i++)
             {
                 Role role = roles[i];
                 players.Add(new Player(role, "player " + i));
@@ -46,16 +56,21 @@ namespace task.Davide_Merli.model
             return players;
         }
 
-        //private void GetFirstCards()
-        //{
-        //    this.Players.ForEach(p => this.deck.NextCards(p.LifePoints).ForEach(c => p.AddCard(c)));
-        //}
+        /// <summary>
+        /// Gives each player a number of cards equal to their life points
+        ///     at the beginning of the game.
+        /// </summary>
+        private void GetFirstCards()
+        {
+            this.Players.ForEach(p => this.Deck.NextCards(p.LifePoints).ForEach(c => p.AddCard(c)));
+        }
 
         public void DiscardCard(Card card)
         {
             this.DiscardPile.Add(card);
         }
-        public void RemovePlayer(Player player)
+
+        public void RemovePlayer(IPlayer player)
         {
             this.Players.Remove(player);
         }
@@ -64,6 +79,17 @@ namespace task.Davide_Merli.model
         {
             this.UsedCards.Clear();
             this.CurrentPlayer = this.Players.GetNext();
+        }
+
+        public void PlayerUsedCard(string cardName)
+        {
+            this.UsedCards.Add(cardName);
+        }
+
+        public void ChoosePlayer(ISet<IPlayer> chosenPlayerSet)
+        {
+            this.Message = ITable.Message.Choose_Player;
+            this.ChosenPlayerSet = chosenPlayerSet;
         }
     }
 }

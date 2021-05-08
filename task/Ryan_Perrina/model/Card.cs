@@ -1,9 +1,6 @@
 ﻿using model.effects;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using model.effects;
-
 
 namespace model
 {

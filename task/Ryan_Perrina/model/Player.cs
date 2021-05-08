@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using task.Davide_Merli.model;
+
 namespace model
 {
-	public class SimplePlayer : IPlayer
+	public class Player : IPlayer
 	{
 		private static readonly int BASIC_SIGHT = 1;
 		private static readonly int MAX_LIFE_POINTS = 4;
-		private String Name { get; }
+		//private String Name { get; }
 		private int sight = BASIC_SIGHT;
 		public int Retreat { get; set; }
 		private Role role { get; }
@@ -21,14 +21,14 @@ namespace model
 		private Card weapon = null;
 
 		
-		public SimplePlayer(Role role, String name)
+		public Player(Role role, String name)
 		{
 			this.Retreat = 0;
 			this.Sight = BASIC_SIGHT;
 			this.HasPrison = false;
-			this.Name = name;
+			//this.Name = name;
 			this.role = role;
-			if (this.role.equals(Role.SHERIFF))
+			if (this.role.Equals(Role.Sheriff))
 			{
 				this.maxLifePoints = MAX_LIFE_POINTS + 1;
 			}
@@ -80,7 +80,9 @@ namespace model
 			}
 		}
 
-		public  List<Card> GetCards()
+        public string Name => throw new NotImplementedException();
+
+        public  List<Card> GetCards()
 		{
 			return this.hand;
 		}

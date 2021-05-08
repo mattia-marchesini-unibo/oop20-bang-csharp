@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-/// <summary>
-///     An enum defining the role of a player.
+﻿/// <summary>
+/// An enum defining the role of a player.
 /// </summary>
 /// 
 /// <author>Davide Merli</author>
-namespace task.Davide_Merli.model
+namespace model
 {
     public enum Role
     {

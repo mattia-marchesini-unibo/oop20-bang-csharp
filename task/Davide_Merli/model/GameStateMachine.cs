@@ -1,30 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using task.Davide_Merli.model.states;
-using task.model.observe;
+using model.states;
+using libs.observe;
 
 /// <summary>
-///     A class which handles the changes of states of the game.
+/// A class which handles the changes of states of the game.
 /// </summary>
 /// 
 /// <author>Davide Merli</author>
-namespace task.Davide_Merli.model
+namespace model
 {
     public class GameStateMachine
     {
         public IState CurrentState { get; set; }
-        public ITable table { get; }
+        public ITable Table { get; set; }
         public ObservableElement<String> MessageObs { get; set; }
         
 
         public GameStateMachine(ITable table)
         {
-            this.table = table;
+            this.Table = table;
         }
 
         /// <summary>
-        ///     Handles current state
+        /// Handles current state
         /// </summary>
         public void Go()
         {
@@ -32,7 +30,7 @@ namespace task.Davide_Merli.model
         }
 
         /// <summary>
-        ///     Sets the message of the observable.
+        /// Sets the message of the observable.
         /// </summary>
         /// 
         /// <param name="message">the message to set</param>

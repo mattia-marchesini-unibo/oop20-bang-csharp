@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace model
+﻿namespace model
 {
     public enum Color
     {
