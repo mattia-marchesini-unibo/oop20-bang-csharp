@@ -1,6 +1,10 @@
-﻿namespace task.Mattia_Marchesini.deck
+﻿using System.Collections.Generic;
+using model;
+
+namespace task.Mattia_Marchesini.deck
 {
-    interface IDeckReader
+    public interface IDeckReader
     {
+        List<Card> ReadCards();
     }
 }

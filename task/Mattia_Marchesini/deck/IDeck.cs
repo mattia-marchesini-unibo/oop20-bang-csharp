@@ -1,6 +1,18 @@
-﻿namespace task.Mattia_Marchesini.deck
+﻿using model;
+using System.Collections.Generic;
+
+namespace task.Mattia_Marchesini.deck
 {
-    interface IDeck
+    public interface IDeck
     {
+        void NewGame();
+
+        Card NextCard();
+
+        List<Card> NextCards(int step);
+
+        int RemainigCards();
+
+        void ShuffleDeck();
     }
 }
