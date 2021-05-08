@@ -103,5 +103,27 @@ namespace model
         /// </summary>
         void RemoveWeapon();
 
+        /// <summary>
+        /// Return the Name of the player
+        /// </summary>
+        public String Name { get; }
+        /// <summary>
+        /// get and set the retreat of the player
+        /// </summary>
+        public int Retreat { get; set; }
+        /// <summary>
+        /// return the Role
+        /// </summary>
+        private Role role { get; }
+
+        /// <summary>
+        /// get and set protection of the player
+        /// </summary>
+        public int Protection { get; set; }
+        /// <summary>
+        /// return if the  current playerhave a prison or not
+        /// and give prison to the player
+        /// </summary>
+        private bool HasPrison { get; set; }
     }
 }
