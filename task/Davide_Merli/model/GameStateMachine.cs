@@ -14,7 +14,7 @@ namespace model
     public class GameStateMachine
     {
         public IState CurrentState { get; set; }
-        public ITable table { get; }
+        public ITable table { get; set; }
         public ObservableElement<String> MessageObs { get; set; }
         
 
