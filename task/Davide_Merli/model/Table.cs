@@ -1,9 +1,9 @@
-﻿using model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using libs;
+using task.Mattia_Marchesini.deck;
+using task.Mattia_Marchesini.observe;
 
 namespace model
 {
@@ -14,26 +14,31 @@ namespace model
             Role.Sheriff, Role.Renegade, Role.Outlaw, Role.Outlaw, Role.Deputy, Role.Outlaw, Role.Deputy
         };
 
-        //public IDeck { get; }
+        public IDeck Deck { get; set; }
         public List<Card> DiscardPile { get; }
-        public CircularList<SimplePlayer> Players { get; }
+        public CircularList<IPlayer> Players { get; set; }
         public IPlayer CurrentPlayer { get; set; }
-        public List<Card> UsedCards { get; }
+        public List<string> UsedCards { get; }
 
-        public Table(/*IDeck deck,*/ int playerNumber)
+        public TurnObservable<IPlayer> ChoosePlayerObservable { get; set; }
+        public TurnObservable<Dictionary<Card, IPlayer>> ChooseCardsObservable { get; set; }
+        public ITable.Message Message { get; set; }
+        public ISet<IPlayer> ChosenPlayerSet { get; set; }
+
+        public Table(IDeck deck, int playerNumber)
         {
-            //this.IDeck = deck;
-            this.Players = this.GetPlayersFromNumber(playerNumber);
-            //this.GetFirstCards();
+            this.Deck = deck;
+            this.Players = null; //this.GetPlayersFromNumber(playerNumber);
+            this.GetFirstCards();
             this.CurrentPlayer = this.Players.GetCurrentElement();
         }
 
-        private CircularList<Player> GetPlayersFromNumber(int playerNumber)
+        private CircularList<IPlayer> GetPlayersFromNumber(int playerNumber)
         {
             List<Role> roles = totalRoles.GetRange(0, playerNumber);
             Random random = new Random();
             roles.OrderBy(item => random.Next());
-            CircularList<Player> players = new CircularList<IPlayer>();
+            CircularList<IPlayer> players = new CircularList<IPlayer>();
             for(int i = 0; i < playerNumber; i++)
             {
                 Role role = roles[i];
@@ -46,16 +51,17 @@ namespace model
             return players;
         }
 
-        //private void GetFirstCards()
-        //{
-        //    this.Players.ForEach(p => this.deck.NextCards(p.LifePoints).ForEach(c => p.AddCard(c)));
-        //}
+        private void GetFirstCards()
+        {
+            this.Players.ForEach(p => this.Deck.NextCards(p.LifePoints).ForEach(c => p.AddCard(c)));
+        }
 
         public void DiscardCard(Card card)
         {
             this.DiscardPile.Add(card);
         }
-        public void RemovePlayer(Player player)
+
+        public void RemovePlayer(IPlayer player)
         {
             this.Players.Remove(player);
         }
@@ -64,6 +70,17 @@ namespace model
         {
             this.UsedCards.Clear();
             this.CurrentPlayer = this.Players.GetNext();
+        }
+
+        public void PlayerUsedCard(string cardName)
+        {
+            this.UsedCards.Add(cardName);
+        }
+
+        public void ChoosePlayer(ISet<IPlayer> chosenPlayerSet)
+        {
+            this.Message = ITable.Message.Choose_Player;
+            this.ChosenPlayerSet = chosenPlayerSet;
         }
     }
 }

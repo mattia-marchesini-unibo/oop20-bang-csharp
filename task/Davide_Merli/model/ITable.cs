@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using task.Mattia_Marchesini.observe;
 
 /// <summary>
 ///     An interface implementing a game table.
@@ -21,10 +22,12 @@ namespace model
 
         void DiscardCard(Card card);
 
-        void RemovePlayer(Player player);
+        void RemovePlayer(IPlayer player);
 
         void NextPlayer();
 
+        void PlayerUsedCard(string cardName);
 
+        void ChoosePlayer(ISet<IPlayer> chosenPlayerSet);
     }
 }
