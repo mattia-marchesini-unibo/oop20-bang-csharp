@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 namespace model
 {
@@ -11,12 +12,12 @@ namespace model
 		public int Retreat { get; set; }
 		private Role role { get; }
 		private List<Card> hand = new List<Card>();
-		private HashSet<Card> activeCards = new HashSet<Card>();
+		private List<Card> activeCards = new List<Card>();
 		private int lifePoints;
 		private int maxLifePoints;
 		public int Protection {get; set;}
 		private bool HasPrison { get; set;}
-		private Nullable<Card> weapon = null;
+		private Card weapon = null;
 
 		
 		public SimplePlayer(Role role, String name)
@@ -100,9 +101,17 @@ namespace model
 
 		public  List<Card> GetActiveCardsByName(String name)
 		{
-			
-			return this.activeCards.Stream().Filter(c->c.getRealName().equals(name)).collect(Collectors.toList())
 
+			//return this.activeCards.Stream().Filter(c->c.getRealName().equals(name)).collect(Collectors.toList())
+			var temp = new List<Card>();
+			this.activeCards.ForEach(delegate (Card c)
+			{
+				if (c.RealName.Equals(name))
+				{
+					temp.Add(c);
+				}
+			});
+			return temp;
 
 		}
 
@@ -113,7 +122,7 @@ namespace model
 
 		public void PlayCard(String name, Table table)
 		{
-			Card card = this.GetCardsByName(name).Get(0);
+			Card card = this.GetCardsByName(name).ElementAt(0);
 
 			if (card.Color == Color.Blu)
 			{
@@ -128,7 +137,7 @@ namespace model
 			this.hand.Remove(card);
 		}
 
-		public HashSet<Card> GetActiveCards()
+		public List<Card> GetActiveCards()
 		{
 			return this.activeCards;
 		}
@@ -166,17 +175,17 @@ namespace model
 
 		public void AddWeapon(String card)
 		{
-			if (this.weapon.HasValue)
+			if (this.weapon != null)
 			{
-				this.RemoveActiveCard(this.weapon.Value);
+				this.RemoveActiveCard(this.weapon);
 			}
-			this.weapon = this.GetCardsByName(card).Get(0));
-			this.AddActiveCard(this.GetCardsByName(card).Get(0));
+			this.weapon = this.GetCardsByName(card).ElementAt(0);
+			this.AddActiveCard(this.GetCardsByName(card).ElementAt(0));
 		}
 
 		public void RemoveWeapon()
 		{
-			this.RemoveActiveCard(this.weapon.Value);
+			this.RemoveActiveCard(this.weapon);
 			this.weapon = null;
 		}
     }
