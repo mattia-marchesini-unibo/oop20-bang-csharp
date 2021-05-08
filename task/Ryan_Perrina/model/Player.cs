@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using task.Davide_Merli.model;
 namespace model
 {
 	public class Player : IPlayer
