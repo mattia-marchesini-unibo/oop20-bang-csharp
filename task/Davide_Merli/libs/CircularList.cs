@@ -32,9 +32,7 @@ namespace libs
             this.AddRange(list);
         }
 
-        public CircularList()
-        {
-        }
+        public CircularList() { }
 
         /// <summary>
         ///     Returns current element
