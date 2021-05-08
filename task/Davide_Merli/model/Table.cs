@@ -28,7 +28,7 @@ namespace model
         public Table(IDeck deck, int playerNumber)
         {
             this.Deck = deck;
-            this.Players = null; //this.GetPlayersFromNumber(playerNumber);
+            this.Players = this.GetPlayersFromNumber(playerNumber);
             this.GetFirstCards();
             this.CurrentPlayer = this.Players.GetCurrentElement();
         }
@@ -39,7 +39,7 @@ namespace model
             Random random = new Random();
             roles.OrderBy(item => random.Next());
             CircularList<IPlayer> players = new CircularList<IPlayer>();
-            for(int i = 0; i < playerNumber; i++)
+            for (int i = 0; i < playerNumber; i++)
             {
                 Role role = roles[i];
                 players.Add(new Player(role, "player " + i));

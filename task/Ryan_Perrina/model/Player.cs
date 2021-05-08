@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using task.Davide_Merli.model;
+
 namespace model
 {
 	public class Player : IPlayer
@@ -28,7 +28,7 @@ namespace model
 			this.HasPrison = false;
 			this.Name = name;
 			this.role = role;
-			if (this.role.equals(Role.SHERIFF))
+			if (this.role.Equals(Role.Sheriff))
 			{
 				this.maxLifePoints = MAX_LIFE_POINTS + 1;
 			}
