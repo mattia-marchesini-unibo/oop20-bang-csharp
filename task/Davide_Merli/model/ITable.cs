@@ -1,5 +1,4 @@
-﻿using model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,7 +8,7 @@ using System.Text;
 /// </summary>
 /// 
 /// <author>Davide Merli</author>
-namespace task.Davide_Merli.model
+namespace model
 {
     public interface ITable
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using task.Davide_Merli.model.states;
+using model.states;
 using task.Mattia_Marchesini.observe;
 
 /// <summary>
@@ -9,7 +9,7 @@ using task.Mattia_Marchesini.observe;
 /// </summary>
 /// 
 /// <author>Davide Merli</author>
-namespace task.Davide_Merli.model
+namespace model
 {
     public class GameStateMachine
     {

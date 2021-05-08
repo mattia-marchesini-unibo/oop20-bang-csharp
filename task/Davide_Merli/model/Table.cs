@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using task.Davide_Merli.libs;
+using libs;
 
-namespace task.Davide_Merli.model
+namespace model
 {
     public class Table : ITable
     {
         private static readonly List<Role> totalRoles = new List<Role>
         {
-            Role.Sheriff, Role.Renegade, Role.Outlaw, Role.Outlaw, Role.Deputy, Role.Outlaw, Role.Deputy)
+            Role.Sheriff, Role.Renegade, Role.Outlaw, Role.Outlaw, Role.Deputy, Role.Outlaw, Role.Deputy
         };
 
         //public IDeck { get; }

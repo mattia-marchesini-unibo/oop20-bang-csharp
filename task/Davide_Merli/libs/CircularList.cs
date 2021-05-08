@@ -8,7 +8,7 @@ using System.Collections.Generic;
 /// </summary>
 /// 
 /// <author>Davide Merli</author>
-namespace task.Davide_Merli.libs
+namespace libs
 {
     public class CircularList<T> : List<T>
     {

@@ -7,7 +7,7 @@ using System.Text;
 /// </summary>
 /// 
 /// <author>Davide Merli</author>
-namespace task.Davide_Merli.model
+namespace model
 {
     public enum Role
     {
