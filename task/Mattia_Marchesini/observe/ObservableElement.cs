@@ -31,7 +31,7 @@ namespace task.Mattia_Marchesini.observe
 
         public void RemoveAllObservers() => this.Observers.Clear();
 
-        public void NotifyObservers()
+        public virtual void NotifyObservers()
         {
             this.Observers.ForEach(delegate (Observer obs)
             {
