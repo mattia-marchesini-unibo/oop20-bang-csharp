@@ -9,7 +9,7 @@ using System.Text;
 /// <author>Davide Merli</author>
 namespace task.Davide_Merli.model
 {
-    enum Role
+    public enum Role
     {
         Sheriff,
         Deputy,
