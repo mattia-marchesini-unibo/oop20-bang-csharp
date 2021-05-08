@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using task.Mattia_Marchesini.observe;
+﻿using System.Collections.Generic;
 
 /// <summary>
 /// An interface implementing a game table.

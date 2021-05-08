@@ -1,7 +1,6 @@
-﻿using model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace task.Mattia_Marchesini.deck
+namespace model.deck
 {
     public interface IDeck
     {

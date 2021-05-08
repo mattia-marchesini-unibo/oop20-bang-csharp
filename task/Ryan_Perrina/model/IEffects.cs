@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace model.effects
+﻿namespace model.effects
 {
     public interface IEffects
     {

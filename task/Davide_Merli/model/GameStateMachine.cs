@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using model.states;
-using task.Mattia_Marchesini.observe;
+using libs.observe;
 
 /// <summary>
 /// A class which handles the changes of states of the game.
@@ -14,13 +12,13 @@ namespace model
     public class GameStateMachine
     {
         public IState CurrentState { get; set; }
-        public ITable table { get; set; }
+        public ITable Table { get; set; }
         public ObservableElement<String> MessageObs { get; set; }
         
 
         public GameStateMachine(ITable table)
         {
-            this.table = table;
+            this.Table = table;
         }
 
         /// <summary>

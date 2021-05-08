@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using libs;
-using task.Mattia_Marchesini.deck;
-using task.Mattia_Marchesini.observe;
+using model.deck;
+using libs.observe;
 
 namespace model
 {

@@ -26,7 +26,7 @@ namespace model
 			this.Retreat = 0;
 			this.Sight = BASIC_SIGHT;
 			this.HasPrison = false;
-			this.Name = name;
+			//this.Name = name;
 			this.role = role;
 			if (this.role.Equals(Role.Sheriff))
 			{
@@ -79,6 +79,8 @@ namespace model
 				}
 			}
 		}
+
+        public string Name => throw new NotImplementedException();
 
         public  List<Card> GetCards()
 		{

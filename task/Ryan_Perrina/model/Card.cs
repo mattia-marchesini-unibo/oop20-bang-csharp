@@ -1,9 +1,6 @@
 ﻿using model.effects;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using model.effects;
-
 
 namespace model
 {
@@ -79,12 +76,12 @@ namespace model
         public Color Color { get; set; }
         public IEffects Effect { get; set; }
 
-        public Card(String CardId, String color, String localName, String realName)
+        public Card(String cardId, String color, String localName, String realName)
         {
             this.CardId = CardId;
-            this.localName = localName;
-            this.realName = realName;
-            this.Color = Enum.Parse(Color,color);
+            this.LocalName = localName;
+            this.RealName = realName;
+            this.Color = (Color) Enum.Parse(Color.GetType(), color);
             //this.effect = cardEffects.get(realName);
             this.Effect = cardsEffects.GetValueOrDefault(realName);
         }

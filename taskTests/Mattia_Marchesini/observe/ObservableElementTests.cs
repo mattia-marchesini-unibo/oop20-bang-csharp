@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace task.Mattia_Marchesini.observe.Tests
+namespace libs.observe.Tests
 {
     [TestClass()]
     public class ObservableElementTests
@@ -61,6 +61,21 @@ namespace task.Mattia_Marchesini.observe.Tests
             obsInt.Element = 1;
             Assert.IsTrue(isNotified1);
             Assert.IsTrue(isNotified2);
+        }
+
+        [TestMethod()]
+        public void Remove_Observer_IsRemoved()
+        {
+            bool isNotified = false;
+
+            ObservableElement<int> obsInt = new ObservableElement<int>();
+            Observer ob = () => isNotified = true;
+
+            obsInt.AddObserver(ob);
+            obsInt.RemoveObserver(ob);
+
+            obsInt.Element = 1;
+            Assert.IsFalse(isNotified);
         }
     }
 }
