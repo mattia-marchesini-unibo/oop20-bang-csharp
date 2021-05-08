@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using task.Davide_Merli.model;
 namespace model
 {
 	public class SimplePlayer : IPlayer
