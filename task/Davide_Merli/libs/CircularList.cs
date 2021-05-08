@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 /// <summary>
-/// A utility class that implements a circular list.
-/// The class contains information about a current element, and has methods which
-/// allow the user to get the next and previous element in the list.
+///     A utility class that implements a circular list.
+///     The class contains information about a current element, and has methods which
+///     allow the user to get the next and previous element in the list.
 /// </summary>
 /// 
 /// <author>Davide Merli</author>
@@ -37,7 +37,9 @@ namespace task.Davide_Merli.libs
         }
 
         /// <summary>
-        /// Returns current element</summary>
+        ///     Returns current element
+        /// </summary>
+        /// 
         /// <returns>current element</returns>
         public T GetCurrentElement()
         {
@@ -45,7 +47,7 @@ namespace task.Davide_Merli.libs
         }
 
         /// <summary>
-        /// Sets current element</summary>
+        ///     Sets current element</summary>
         /// <param name="element">the element to set as current</param>
         public void SetCurrentElement(T element)
         {
@@ -56,7 +58,7 @@ namespace task.Davide_Merli.libs
         }
 
         /// <summary>
-        /// Changes the current element to the next one</summary>
+        ///     Changes the current element to the next one</summary>
         /// <returns>next element</returns>
         public T GetNext()
         {
@@ -72,7 +74,7 @@ namespace task.Davide_Merli.libs
         }
 
         /// <summary>
-        /// Gets next element of an input element</summary>
+        ///     Gets next element of an input element</summary>
         /// <param name="element">the element whose next is returned</param>
         public T GetNextOf(T element)
         {
@@ -89,7 +91,7 @@ namespace task.Davide_Merli.libs
         }
 
         /// <summary>
-        /// Changes the current element to the previous one</summary>
+        ///     Changes the current element to the previous one</summary>
         /// <returns>previous element</returns>
         public T GetPrev()
         {
@@ -105,7 +107,7 @@ namespace task.Davide_Merli.libs
         }
 
         /// <summary>
-        /// Gets previous element of an input element</summary>
+        ///     Gets previous element of an input element</summary>
         /// <param name="element">the element whose previous is returned</param>
         public T GetPrevOf(T element)
         {
