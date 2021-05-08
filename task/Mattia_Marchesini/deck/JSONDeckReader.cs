@@ -1,10 +1,8 @@
-﻿using model;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace task.Mattia_Marchesini.deck
+namespace model.deck
 {
     public class JSONDeckReader : IDeckReader
     {

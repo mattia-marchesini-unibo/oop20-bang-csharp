@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using model;
 
-namespace task.Mattia_Marchesini.deck
+namespace model.deck
 {
     public interface IDeckReader
     {

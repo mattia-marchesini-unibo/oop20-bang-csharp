@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace task.Mattia_Marchesini.observe
+﻿namespace libs.observe
 {
-    class TurnObservable<E> : ObservableElement<E>
+    public class TurnObservable<E> : ObservableElement<E>
     {
         public override void NotifyObservers()
         {

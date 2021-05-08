@@ -1,9 +1,8 @@
-﻿using model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace task.Mattia_Marchesini.deck
+namespace model.deck
 {
     public abstract class AbstractDeck : IDeck
     {

@@ -1,4 +1,4 @@
-﻿namespace task.Mattia_Marchesini.observe
+﻿namespace libs.observe
 {
     interface IObservable
     {

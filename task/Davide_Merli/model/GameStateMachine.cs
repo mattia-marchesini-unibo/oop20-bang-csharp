@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using task.Davide_Merli.model.states;
-using task.Mattia_Marchesini.observe;
+using task.model.observe;
 
 /// <summary>
 ///     A class which handles the changes of states of the game.

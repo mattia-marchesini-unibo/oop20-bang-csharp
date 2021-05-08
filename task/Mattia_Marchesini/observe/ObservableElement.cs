@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace task.Mattia_Marchesini.observe
+namespace libs.observe
 {
     public class ObservableElement<E> : IObservable
     {
