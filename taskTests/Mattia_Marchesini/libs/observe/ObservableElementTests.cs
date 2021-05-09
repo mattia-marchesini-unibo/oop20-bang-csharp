@@ -77,5 +77,45 @@ namespace libs.observe.Tests
             obsInt.Element = 1;
             Assert.IsFalse(isNotified);
         }
+
+        [TestMethod()]
+        public void Remove_AllObservers_AreRemoved()
+        {
+            bool isNotified1 = false;
+            bool isNotified2 = false;
+
+            ObservableElement<int> obsInt = new ObservableElement<int>();
+            Observer ob1 = () => isNotified1 = true;
+            Observer ob2 = () => isNotified2 = true;
+
+            obsInt.AddObserver(ob1);
+            obsInt.AddObserver(ob2);
+            obsInt.RemoveAllObservers();
+
+            obsInt.Element = 1;
+            Assert.IsFalse(isNotified1);
+            Assert.IsFalse(isNotified2);
+        }
+
+        class VoidClass { }
+        [TestMethod()]
+        public void DoesNotSet_Element_IsEmpty()
+        {
+            ObservableElement<VoidClass> obsVoid = new ObservableElement<VoidClass>();
+            Assert.IsTrue(obsVoid.IsEmpty());
+        }
+
+        [TestMethod()]
+        public void SetNoNotifyTest()
+        {
+            ObservableElement<int> obsInt = new ObservableElement<int>();
+            
+            bool isNotified = false;
+            Observer ob = () => isNotified = true;
+            obsInt.AddObserver(ob);
+
+            obsInt.SetNoNotify(1);
+            Assert.IsFalse(isNotified);
+        }
     }
 }
