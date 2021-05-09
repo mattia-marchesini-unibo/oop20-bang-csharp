@@ -28,7 +28,7 @@ namespace model
 		private Role role;
 		public Role Role { get => role; }
 		private List<Card> hand = new List<Card>();
-		public List<Card> Hand { get; }
+		public List<Card> Hand { get => hand; }
 		private List<Card> activeCards = new List<Card>();
 		public List<Card> ActiveCards { get; }
 		private int lifePoints;

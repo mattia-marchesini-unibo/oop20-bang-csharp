@@ -1,4 +1,5 @@
 ﻿using libs;
+using libs.observe;
 using model.deck;
 using System.Collections.Generic;
 
@@ -28,6 +29,14 @@ namespace model
         public IPlayer CurrentPlayer { get; set; }
 
         public List<string> UsedCards { get; }
+
+        public TurnObservable<IPlayer> ChoosePlayerObservable { get; set; }
+
+        public TurnObservable<Dictionary<Card, IPlayer>> ChooseCardsObservable { get; set; }
+
+        public Message TableMessage { get; set; }
+
+        public ISet<IPlayer> ChosenPlayerSet { get; set; }
 
         /// <summary>
         /// Adds a card to the discard pile.

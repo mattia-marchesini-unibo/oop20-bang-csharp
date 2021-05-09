@@ -22,7 +22,7 @@ namespace model
 
         public TurnObservable<IPlayer> ChoosePlayerObservable { get; set; } = new TurnObservable<IPlayer>();
         public TurnObservable<Dictionary<Card, IPlayer>> ChooseCardsObservable { get; set; } = new TurnObservable<Dictionary<Card, IPlayer>>();
-        public ITable.Message Message { get; set; } = default;
+        public ITable.Message TableMessage { get; set; } = default;
         public ISet<IPlayer> ChosenPlayerSet { get; set; }
 
         public Table(IDeck deck, int playerNumber)
@@ -88,7 +88,7 @@ namespace model
 
         public void ChoosePlayer(ISet<IPlayer> chosenPlayerSet)
         {
-            this.Message = ITable.Message.CHOOSE_PLAYER;
+            this.TableMessage = ITable.Message.CHOOSE_PLAYER;
             this.ChosenPlayerSet = chosenPlayerSet;
         }
     }
