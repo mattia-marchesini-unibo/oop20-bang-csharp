@@ -78,7 +78,7 @@ namespace model
 
         public Card(String cardId, String color, String localName, String realName)
         {
-            this.CardId = CardId;
+            this.CardId = cardId;
             this.LocalName = localName;
             this.RealName = realName;
             this.Color = (Color) Enum.Parse(Color.GetType(), color);
