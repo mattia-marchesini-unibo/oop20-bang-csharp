@@ -11,7 +11,7 @@ namespace model
     {
         private static readonly List<Role> totalRoles = new List<Role>
         {
-            Role.Sheriff, Role.Renegade, Role.Outlaw, Role.Outlaw, Role.Deputy, Role.Outlaw, Role.Deputy
+            Role.SHERIFF, Role.RENEGADE, Role.OUTLAW, Role.OUTLAW, Role.DEPUTY, Role.OUTLAW, Role.DEPUTY
         };
 
         public IDeck Deck { get; }
@@ -48,7 +48,7 @@ namespace model
             {
                 Role role = roles[i];
                 players.Add(new Player(role, "player " + i));
-                if (role.Equals(Role.Sheriff))
+                if (role.Equals(Role.SHERIFF))
                 {
                     players.CurrentIndex = i;
                 }
@@ -88,7 +88,7 @@ namespace model
 
         public void ChoosePlayer(ISet<IPlayer> chosenPlayerSet)
         {
-            this.Message = ITable.Message.Choose_Player;
+            this.Message = ITable.Message.CHOOSE_PLAYER;
             this.ChosenPlayerSet = chosenPlayerSet;
         }
     }

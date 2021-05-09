@@ -66,7 +66,7 @@ namespace model
 			this.HasPrison = false;
 			this.name = name;
 			this.role = role;
-			if (this.role.Equals(model.Role.Sheriff))
+			if (this.role.Equals(model.Role.SHERIFF))
 			{
 				this.maxLifePoints = MAX_LIFE_POINTS + 1;
 			}

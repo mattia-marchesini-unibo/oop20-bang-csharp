@@ -7,9 +7,9 @@ namespace model
 {
     public enum Role
     {
-        Sheriff,
-        Deputy,
-        Outlaw,
-        Renegade
+        SHERIFF,
+        DEPUTY,
+        OUTLAW,
+        RENEGADE
     }
 }

@@ -14,9 +14,9 @@ namespace model
     {
         enum Message
         {
-            Choose_Player,
-            Choose_Player_With_Distance,
-            Choose_Card
+            CHOOSE_PLAYER,
+            CHOOSE_PLAYER_WITH_DISTANCE,
+            CHOOSE_CARD
         }
 
         public IDeck Deck { get; }
