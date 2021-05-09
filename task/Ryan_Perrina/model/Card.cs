@@ -81,7 +81,7 @@ namespace model
             this.CardId = cardId;
             this.LocalName = localName;
             this.RealName = realName;
-            this.Color = (Color) Enum.Parse(Color.GetType(), color);
+            this.Color = (Color) Enum.Parse(Color.GetType(), color.ToUpper());
             //this.effect = cardEffects.get(realName);
             this.Effect = cardsEffects.GetValueOrDefault(realName);
         }

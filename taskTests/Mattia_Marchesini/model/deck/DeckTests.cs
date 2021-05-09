@@ -6,30 +6,12 @@ namespace model.deck.Tests
     [TestClass()]
     public class DeckTests
     {
-        const int CARDS_COUNT = 10;
-
-        class FakeDeck : AbstractDeck
-        {
-            public FakeDeck() : base(new DeckReader()) {}
-        }
-
-        class DeckReader : IDeckReader
-        {
-            public List<Card> ReadCards()
-            {
-                var list = new List<Card>();
-                for (int i = 0; i < CARDS_COUNT; i++)
-                {
-                    list.Add(new Card("card" + i, Color.Brown.ToString(), "Carta", "Card"));
-                }
-                return list;
-            }
-        }
+        const int CARDS_COUNT = 60;
 
         [TestMethod()]
         public void RemaningCardsTest()
         {
-            FakeDeck deck = new FakeDeck();
+            Deck deck = new Deck();
             deck.NewGame();
             Assert.AreEqual(CARDS_COUNT, deck.RemainigCards());
         }
@@ -37,7 +19,7 @@ namespace model.deck.Tests
         [TestMethod()]
         public void ShuffleDeckTest()
         {
-            FakeDeck deck = new FakeDeck();
+            Deck deck = new Deck();
             deck.NewGame();
             List<Card> cards = new List<Card>(deck.Cards);
             deck.ShuffleDeck();
@@ -47,7 +29,7 @@ namespace model.deck.Tests
         [TestMethod()]
         public void NextCardTest()
         {
-            FakeDeck deck = new FakeDeck();
+            Deck deck = new Deck();
             deck.NewGame();
             int tot = deck.RemainigCards() + 1;
 
@@ -60,7 +42,7 @@ namespace model.deck.Tests
         [TestMethod()]
         public void NextCardsTest()
         {
-            FakeDeck deck = new FakeDeck();
+            Deck deck = new Deck();
             deck.NewGame();
             int tot = deck.RemainigCards() + 1;
 

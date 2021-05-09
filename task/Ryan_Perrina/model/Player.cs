@@ -113,7 +113,7 @@ namespace model
 		{
 			Card card = this.GetCardsByName(name).ElementAt(0);
 
-			if (card.Color == Color.Blu)
+			if (card.Color == Color.BLUE)
 			{
                 this.AddActiveCard(card);
 			}
