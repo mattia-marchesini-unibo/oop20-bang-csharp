@@ -5,13 +5,39 @@ namespace model
 {
     public interface IPlayer
     {
-        int Sight { get; }
+        /// <summary>
+        /// Return the Name of the player
+        /// </summary>
+        String Name { get; }
 
         /// <summary>
-        /// Returns a list containing the hand of cards of the player.
+        /// get and set the retreat of the player
         /// </summary>
-        /// <returns>a list of cards</returns>
-        public List<Card> GetCards();
+        int Retreat { get; set; }
+
+        /// <summary>
+        /// return the Role
+        /// </summary>
+        Role Role { get; }
+
+        /// <summary>
+        /// get and set protection of the player
+        /// </summary>
+        int Protection { get; set; }
+
+        /// <summary>
+        /// return if the  current player has a prison or not
+        /// and give prison to the player
+        /// </summary>
+        bool HasPrison { get; set; }
+
+        int Sight { get; }
+
+        int LifePoints { get; }
+
+        List<Card> Hand { get; }
+
+        List<Card> ActiveCards { get; }
 
         /// <summary>
         /// Adds a card to the hand of cards of the player.
@@ -26,12 +52,6 @@ namespace model
         /// <param name="Card"></param>
         /// <param name=""></param>
         public void RemoveCard(Card card);
-
-        /// <summary>
-        /// Returns a list containing the active cards of the player.
-        /// </summary>
-        /// <returns>a list of cards</returns>
-        public List<Card> GetActiveCards();
 
         /// <summary>
         ///  Adds a card to the list of active cards.
@@ -49,7 +69,7 @@ namespace model
 
         /// <summary>
         /// Returns a list of cards with an input name, taken from the hand of the
-        ///player.
+        /// player.
         /// </summary>
         /// <param name="String"></param>
         /// <param name=""></param>
@@ -58,7 +78,7 @@ namespace model
 
         /// <summary>
         ///  Returns a list of cards with an input name, taken from the active cards of
-        /// the player.
+        ///  the player.
         /// </summary>
         /// <param name="String"></param>
         /// <param name=""></param>
@@ -102,28 +122,5 @@ namespace model
         ///  Removes the player weapon.
         /// </summary>
         void RemoveWeapon();
-
-        /// <summary>
-        /// Return the Name of the player
-        /// </summary>
-        public String Name { get; }
-        /// <summary>
-        /// get and set the retreat of the player
-        /// </summary>
-        public int Retreat { get; set; }
-        /// <summary>
-        /// return the Role
-        /// </summary>
-        private Role role { get; }
-
-        /// <summary>
-        /// get and set protection of the player
-        /// </summary>
-        public int Protection { get; set; }
-        /// <summary>
-        /// return if the  current playerhave a prison or not
-        /// and give prison to the player
-        /// </summary>
-        private bool HasPrison { get; set; }
     }
 }

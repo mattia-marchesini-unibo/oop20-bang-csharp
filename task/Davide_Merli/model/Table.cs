@@ -14,15 +14,15 @@ namespace model
             Role.Sheriff, Role.Renegade, Role.Outlaw, Role.Outlaw, Role.Deputy, Role.Outlaw, Role.Deputy
         };
 
-        public IDeck Deck { get; set; }
-        public List<Card> DiscardPile { get; }
-        public CircularList<IPlayer> Players { get; set; }
+        public IDeck Deck { get; }
+        public List<Card> DiscardPile { get; } = new List<Card>();
+        public CircularList<IPlayer> Players { get; }
         public IPlayer CurrentPlayer { get; set; }
-        public List<string> UsedCards { get; }
+        public List<string> UsedCards { get; } = new List<string>();
 
-        public TurnObservable<IPlayer> ChoosePlayerObservable { get; set; }
-        public TurnObservable<Dictionary<Card, IPlayer>> ChooseCardsObservable { get; set; }
-        public ITable.Message Message { get; set; }
+        public TurnObservable<IPlayer> ChoosePlayerObservable { get; set; } = new TurnObservable<IPlayer>();
+        public TurnObservable<Dictionary<Card, IPlayer>> ChooseCardsObservable { get; set; } = new TurnObservable<Dictionary<Card, IPlayer>>();
+        public ITable.Message Message { get; set; } = default;
         public ISet<IPlayer> ChosenPlayerSet { get; set; }
 
         public Table(IDeck deck, int playerNumber)

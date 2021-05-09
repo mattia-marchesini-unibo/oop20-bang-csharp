@@ -1,10 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using task.Davide_Merli.libs;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace task.Davide_Merli.libs.Tests
+namespace libs.Tests
 {
     [TestClass()]
     public class CircularListTests

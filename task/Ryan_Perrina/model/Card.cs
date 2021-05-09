@@ -8,7 +8,7 @@ namespace model
     {
         private static readonly Dictionary<String, IEffects> cardsEffects = new Dictionary<string, IEffects>()
         {
-            {
+            /*{
                 "bang", new Bang()
             },
             {
@@ -67,7 +67,7 @@ namespace model
             },
             {
                 "volcanic", new Weapon(1, "volcanic")
-            }
+            }*/
         };
 
         private String LocalName { get; set; }

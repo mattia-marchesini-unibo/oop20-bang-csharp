@@ -6,7 +6,7 @@ namespace model.deck.Tests
     [TestClass()]
     public class DeckTests
     {
-        const int CARDS_COUNT = 7;
+        const int CARDS_COUNT = 60;
 
         [TestMethod()]
         public void RemaningCardsTest()

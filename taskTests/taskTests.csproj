@@ -18,4 +18,10 @@
     <ProjectReference Include="..\task\task.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Mattia_Marchesini\model\deck\deck.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

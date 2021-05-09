@@ -12,9 +12,9 @@ namespace model
     public class GameStateMachine
     {
         public IState CurrentState { get; set; }
-        public ITable Table { get; set; }
-        public ObservableElement<String> MessageObs { get; set; }
-        
+        public ITable Table { get; }
+        public ObservableElement<String> MessageObs { get; } = new ObservableElement<string>();
+
 
         public GameStateMachine(ITable table)
         {

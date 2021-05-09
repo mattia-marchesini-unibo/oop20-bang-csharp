@@ -14,10 +14,7 @@ namespace libs.observe
             set
             {
                 this.element = value;
-                this.Observers.ForEach(delegate (Observer obs)
-                {
-                    obs();
-                });
+                NotifyObservers();
             }
         }
 

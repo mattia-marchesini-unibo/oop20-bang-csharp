@@ -8,43 +8,33 @@ namespace model
 	{
 		private static readonly int BASIC_SIGHT = 1;
 		private static readonly int MAX_LIFE_POINTS = 4;
-		//private String Name { get; }
+		private string name;
+		public string Name { get; set; }
 		private int sight = BASIC_SIGHT;
-		public int Retreat { get; set; }
-		private Role role { get; }
-		private List<Card> hand = new List<Card>();
-		private List<Card> activeCards = new List<Card>();
-		private int lifePoints;
-		private int maxLifePoints;
-		public int Protection {get; set;}
-		private bool HasPrison { get; set;}
-		private Card weapon = null;
-
-		
-		public Player(Role role, String name)
+		public int Sight
 		{
-			this.Retreat = 0;
-			this.Sight = BASIC_SIGHT;
-			this.HasPrison = false;
-			//this.Name = name;
-			this.role = role;
-			if (this.role.Equals(Role.Sheriff))
+			get => sight;
+			set
 			{
-				this.maxLifePoints = MAX_LIFE_POINTS + 1;
-			}
-			else
-			{
-				this.maxLifePoints = MAX_LIFE_POINTS;
-			}
-			this.LifePoints = this.maxLifePoints;
-		}
+				this.sight += sight;
 
+				if (this.sight < 0)
+				{
+					this.sight = 0;
+				}
+			}
+		}
+		public int Retreat { get; set; }
+		private Role role;
+		public Role Role { get => role; }
+		private List<Card> hand = new List<Card>();
+		public List<Card> Hand { get; }
+		private List<Card> activeCards = new List<Card>();
+		public List<Card> ActiveCards { get; }
+		private int lifePoints;
 		public int LifePoints
 		{
-			get
-			{
-				return this.sight;
-			}
+			get => lifePoints;
 			set
 			{
 				int newLifePoints;
@@ -63,31 +53,31 @@ namespace model
 				}
 			}
 		}
-		public int Sight
-		{
-			get
-			{
-				return this.sight;
-			}
-			set
-			{
-				this.sight += sight;
+		private int maxLifePoints;
+		public int Protection { get; set; }
+		public bool HasPrison { get; set; } = false;
+		private Card weapon = null;
 
-				if (this.sight < 0)
-				{
-					this.sight = 0;
-				}
+		
+		public Player(Role role, String name)
+		{
+			this.Retreat = 0;
+			this.sight = BASIC_SIGHT;
+			this.HasPrison = false;
+			this.name = name;
+			this.role = role;
+			if (this.role.Equals(model.Role.Sheriff))
+			{
+				this.maxLifePoints = MAX_LIFE_POINTS + 1;
 			}
+			else
+			{
+				this.maxLifePoints = MAX_LIFE_POINTS;
+			}
+			this.lifePoints = this.maxLifePoints;
 		}
 
-        public string Name => throw new NotImplementedException();
-
-        public  List<Card> GetCards()
-		{
-			return this.hand;
-		}
-
-		public  List<Card> GetCardsByName(String name)
+		public List<Card> GetCardsByName(String name)
 		{
 			var temp = new List<Card>();
 			this.hand.ForEach(delegate (Card c)
@@ -98,14 +88,10 @@ namespace model
 				}
 			});
 			return temp;
-
-			//return this.hand.stream().filter(c -> c.getRealName().equals(name)).collect(Collectors.toList());
 		}
 
-		public  List<Card> GetActiveCardsByName(String name)
+		public List<Card> GetActiveCardsByName(String name)
 		{
-
-			//return this.activeCards.Stream().Filter(c->c.getRealName().equals(name)).collect(Collectors.toList())
 			var temp = new List<Card>();
 			this.activeCards.ForEach(delegate (Card c)
 			{
@@ -139,12 +125,6 @@ namespace model
 		{
 			this.hand.Remove(card);
 		}
-
-		public List<Card> GetActiveCards()
-		{
-			return this.activeCards;
-		}
-
 	
 		public void AddActiveCard( Card card)
 		{

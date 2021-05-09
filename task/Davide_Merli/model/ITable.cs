@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using libs;
+using model.deck;
+using System.Collections.Generic;
 
 /// <summary>
 /// An interface implementing a game table.
@@ -16,6 +18,16 @@ namespace model
             Choose_Player_With_Distance,
             Choose_Card
         }
+
+        public IDeck Deck { get; }
+
+        public List<Card> DiscardPile { get; }
+
+        public CircularList<IPlayer> Players { get; }
+
+        public IPlayer CurrentPlayer { get; set; }
+
+        public List<string> UsedCards { get; }
 
         /// <summary>
         /// Adds a card to the discard pile.
