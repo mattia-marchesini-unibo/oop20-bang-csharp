@@ -8,7 +8,6 @@ namespace model
 	{
 		private static readonly int BASIC_SIGHT = 1;
 		private static readonly int MAX_LIFE_POINTS = 4;
-		private string name;
 		public string Name { get; set; }
 		private int sight = BASIC_SIGHT;
 		public int Sight
@@ -64,7 +63,7 @@ namespace model
 			this.Retreat = 0;
 			this.sight = BASIC_SIGHT;
 			this.HasPrison = false;
-			this.name = name;
+			this.Name = name;
 			this.role = role;
 			if (this.role.Equals(model.Role.SHERIFF))
 			{
@@ -171,5 +170,48 @@ namespace model
 			this.RemoveActiveCard(this.weapon);
 			this.weapon = null;
 		}
+
+        public override bool Equals(object obj)
+        {
+            return obj is Player player &&
+                   Name == player.Name &&
+                   sight == player.sight &&
+                   Sight == player.Sight &&
+                   Retreat == player.Retreat &&
+                   role == player.role &&
+                   Role == player.Role &&
+                   EqualityComparer<List<Card>>.Default.Equals(hand, player.hand) &&
+                   EqualityComparer<List<Card>>.Default.Equals(Hand, player.Hand) &&
+                   EqualityComparer<List<Card>>.Default.Equals(activeCards, player.activeCards) &&
+                   EqualityComparer<List<Card>>.Default.Equals(ActiveCards, player.ActiveCards) &&
+                   lifePoints == player.lifePoints &&
+                   LifePoints == player.LifePoints &&
+                   maxLifePoints == player.maxLifePoints &&
+                   Protection == player.Protection &&
+                   HasPrison == player.HasPrison &&
+                   EqualityComparer<Card>.Default.Equals(weapon, player.weapon);
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Name);
+            hash.Add(sight);
+            hash.Add(Sight);
+            hash.Add(Retreat);
+            hash.Add(role);
+            hash.Add(Role);
+            hash.Add(hand);
+            hash.Add(Hand);
+            hash.Add(activeCards);
+            hash.Add(ActiveCards);
+            hash.Add(lifePoints);
+            hash.Add(LifePoints);
+            hash.Add(maxLifePoints);
+            hash.Add(Protection);
+            hash.Add(HasPrison);
+            hash.Add(weapon);
+            return hash.ToHashCode();
+        }
     }
 }
